@@ -96,18 +96,16 @@ public class Project {
   
   @Test
   public void verifyLipBalmNavigationAndAddToCart() {
+	  
 	  WebElement gheeRange = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='Ghee Range']")));
 		actions.moveToElement(gheeRange).perform();
 
-		// Wait for "Lip Balm" and click
 		WebElement lipBalm = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space()='Lip Balm']")));
 		lipBalm.click();
 
-		// Wait for product and click
 		WebElement product = wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText("Lip Balm")));
 		product.click();
 
-		// Wait for page title
 		wait.until(ExpectedConditions.titleContains("Lip Balm"));
 		System.out.println("Title of the page = " + driver.getTitle());
 
@@ -119,7 +117,6 @@ public class Project {
 		WebElement closePopup = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".popup-size-guide__close")));
 		closePopup.click();
 
-		// Add to cart
 		WebElement addToCart = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='btn btn--full btn--status btn--animated btn--animation-shake']")));
 		addToCart.click();
   }
