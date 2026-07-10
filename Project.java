@@ -46,30 +46,30 @@ public class Project {
   }
   
   @Test
-  public void f1() {
+  public void verifyUserLogin() {
 	  WebElement login = driver.findElement(By.xpath("//a[@class='header__btn-account d-flex align-items-center position-relative ml-25 ml-lg-15 js-popup-button']"));
 		login.click();
 
 		WebElement email = driver.findElement(By.xpath("//input[@id='PopupCustomerEmail']"));
-		email.sendKeys("aakanksha@gmail.com");
+		email.sendKeys("test@example.com");
 
 		WebElement password = driver.findElement(By.xpath("//input[@id='PopupCustomerPassword']"));
-		password.sendKeys("aakanksha");
+		password.sendKeys("dummyPassword");
 
 		WebElement lbtn = driver.findElement(By.xpath("//input[@value='LOGIN']"));
 		lbtn.click();
   }
   
   @Test
-  public void f2() throws IOException {
+  public void captureScreenshot() throws IOException {
 	  TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
-		File desk = new File("G:\\info\\barvaProduct.jpg");
+		File desk = new File("./screenshots/barvaProduct.jpg");
 		FileHandler.copy(source, desk);
   }
   
   @Test
-  public void f3() {
+  public void verifyProductDetailsAndAddToCart() {
 	  WebElement BBcare = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/main[1]/div[9]/div[1]/builder-section[1]/div[1]/div[1]/div[3]/div[1]/a[1]/div[1]/div[1]/img[1]")));
 		BBcare.click();
 
@@ -95,7 +95,7 @@ public class Project {
   }
   
   @Test
-  public void f4() {
+  public void verifyLipBalmNavigationAndAddToCart() {
 	  WebElement gheeRange = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='Ghee Range']")));
 		actions.moveToElement(gheeRange).perform();
 
@@ -125,7 +125,7 @@ public class Project {
   }
   
   @Test
-  public void f5() {
+  public void verifyProductSearchStockAndAddToCart {
 	  WebElement searchbtn = driver.findElement(By.xpath("//a[@class='header__btn-search d-none d-lg-flex align-items-lg-center ml-25 ml-lg-15 js-popup-button']//i//*[name()='svg']"));
 		searchbtn.click();
 
